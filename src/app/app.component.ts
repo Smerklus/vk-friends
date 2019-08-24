@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 declare const VK: any;
 @Component({
@@ -6,15 +7,44 @@ declare const VK: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'vk-friends';
-  constructor(){
+export class AppComponent implements OnInit {
+  user;
+  friends = [];
+
+  constructor() {
     VK.init({
       apiId: 7110270
     });
   }
 
-  login(){
-    VK.Auth.login(x=>console.log(x),2)
+  ngOnInit() {
+    this.getCurrentUser();
+    this.getFriends();
+  }
+
+  login() {
+    VK.Auth.login(response => {
+      if (response.session) {
+        this.getCurrentUser();
+        this.getFriends();
+        console.log(response.session)
+      }
+    }, 2)
+  }
+
+  getFriends() {
+      VK.Api.call('friends.get', { user_id: 29026789, fields: 'photo_100', count: 5, v: "5.8" }, r => {
+        if (r.response) {
+          this.friends = r.response.items;
+        }
+    });
+  }
+
+  getCurrentUser() {
+      VK.Api.call('users.get', { fields: 'photo_100', v: "5.8" }, r => {
+        if (r.response) {
+          this.user = r.response[0];
+        }
+      });
   }
 }

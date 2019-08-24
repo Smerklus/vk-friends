@@ -1,1 +1,6 @@
-<button (click)="login()">Login</button>
+<button *ngIf="!user" (click)="login()">Login</button>
+<ul>
+  <li *ngFor="let friend of friends">
+   <img [src]="friend.photo_100" alt="{{friend.id}}"> {{friend.first_name}} {{friend.last_name}}
+  </li>
+</ul>
