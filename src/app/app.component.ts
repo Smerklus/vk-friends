@@ -19,14 +19,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
-    this.getFriends();
   }
 
   login() {
     VK.Auth.login(response => {
       if (response.session) {
         this.getCurrentUser();
-        this.getFriends();
         console.log(response.session)
       }
     }, 2)
@@ -44,6 +42,7 @@ export class AppComponent implements OnInit {
       VK.Api.call('users.get', { fields: 'photo_100', v: "5.8" }, r => {
         if (r.response) {
           this.user = r.response[0];
+          this.getFriends();
         }
       });
   }
