@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    VK.Auth.getLoginStatus(x => {
-      if (x.session.user) {
+    VK.Auth.getSession(x => {
+      if (x.user) {
         this.getCurrentUser();
       }
     })
