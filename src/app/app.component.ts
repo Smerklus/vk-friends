@@ -10,6 +10,7 @@ declare const VK: any;
 export class AppComponent implements OnInit {
   user;
   friends = [];
+  loading = true;
 
   constructor() {
     VK.init({
@@ -44,6 +45,7 @@ export class AppComponent implements OnInit {
           this.user = r.response[0];
           this.getFriends();
         }
+        this.loading = false;
       });
   }
 }
