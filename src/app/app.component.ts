@@ -10,7 +10,6 @@ declare const VK: any;
 export class AppComponent implements OnInit {
   user;
   friends = [];
-  loading = true;
 
   constructor() {
     VK.init({
@@ -20,11 +19,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     VK.Auth.getLoginStatus(x => {
-      if (x.status === 'connected') {
+      if (x.session.user) {
         this.getCurrentUser();
-      }
-      else {
-        this.loading = false;
       }
     })
   }
@@ -52,7 +48,6 @@ export class AppComponent implements OnInit {
         this.user = r.response[0];
         this.getFriends();
       }
-      this.loading = false;
     });
   }
 }
