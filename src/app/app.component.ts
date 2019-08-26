@@ -19,7 +19,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCurrentUser();
+    VK.Auth.getLoginStatus(x => {
+      if (x.status === 'connected') {
+        this.getCurrentUser();
+      }
+      else {
+        this.loading = false;
+      }
+    })
   }
 
   login() {
@@ -32,20 +39,20 @@ export class AppComponent implements OnInit {
   }
 
   getFriends() {
-      VK.Api.call('friends.get', { user_id: 29026789, fields: 'photo_100', count: 5, v: "5.8" }, r => {
-        if (r.response) {
-          this.friends = r.response.items;
-        }
+    VK.Api.call('friends.get', { user_id: 29026789, fields: 'photo_100', count: 5, v: "5.8" }, r => {
+      if (r.response) {
+        this.friends = r.response.items;
+      }
     });
   }
 
   getCurrentUser() {
-      VK.Api.call('users.get', { fields: 'photo_100', v: "5.8" }, r => {
-        if (r.response) {
-          this.user = r.response[0];
-          this.getFriends();
-        }
-        this.loading = false;
-      });
+    VK.Api.call('users.get', { fields: 'photo_100', v: "5.8" }, r => {
+      if (r.response) {
+        this.user = r.response[0];
+        this.getFriends();
+      }
+      this.loading = false;
+    });
   }
 }
