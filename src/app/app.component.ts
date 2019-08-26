@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 
 declare const VK: any;
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   user;
   friends = [];
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
     VK.init({
       apiId: 7110270
     });
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
       if (r.response) {
         this.friends = r.response.items;
       }
+      this.cdr.detectChanges();
     });
   }
 
