@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.clear();
         this.getCurrentUser();
   }
 
@@ -26,7 +25,6 @@ export class AppComponent implements OnInit {
     VK.Auth.login(response => {
       if (response.session) {
         this.getCurrentUser();
-        console.log(response.session)
       }
     }, 2)
   }
