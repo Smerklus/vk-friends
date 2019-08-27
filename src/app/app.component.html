@@ -1,5 +1,4 @@
-<button *ngIf="!user && !loading" (click)="login()">Login</button>
-<button id="login">VK</button>
+<button *ngIf="!user" (click)="login()">Login</button>
 <span *ngIf="loading">Loading</span>
 <ul>
   <li *ngFor="let friend of friends">

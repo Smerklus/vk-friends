@@ -18,12 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    VK.UI.button('login');
-    VK.Auth.getLoginStatus(x => {
-      if (x.session.user) {
         this.getCurrentUser();
-      }
-    })
   }
 
   login() {
