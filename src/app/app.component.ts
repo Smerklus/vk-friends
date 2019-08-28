@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
         this.user = r.response[0];
         this.getFriends();
       }
-      this.cdr.detectChanges();
     });
   }
 }
