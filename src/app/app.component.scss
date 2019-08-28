@@ -31,7 +31,6 @@
 button {
   width: 100px;
   height: 35px;
-  align-self: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   margin: 0;
   font-size: 12.5px;
@@ -73,4 +72,7 @@ img {
   padding: 0 15px;
   border-radius: 50%;
 }
-
+.button-container{
+    align-self: center;
+    margin: 30px;
+}

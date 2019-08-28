@@ -3,12 +3,14 @@
     <h5>VK Friends</h5>
   </div>
   <div class="app-wrapper-body">
-    <button *ngIf="!user" (click)="login()">Login</button>
-    <div class="my-info">
-        <img [src]="user?.photo_50" alt="{{user?.id}}"> {{user?.first_name}} {{user?.last_name}}
+    <div class="button-container">
+      <button *ngIf="!user" (click)="login()">Login</button>
+    </div>
+    <div *ngIf="user" class="my-info">
+      <img [src]="user?.photo_50" alt="{{user?.id}}"> {{user?.first_name}} {{user?.last_name}}
     </div>
     <hr *ngIf="user">
-    <div *ngIf="!user" class="friends-info">
+    <div *ngIf="user" class="friends-info">
       <div class="friends-item" *ngFor="let friend of friends">
         <img [src]="friend.photo_50" alt="{{friend.id}}"> {{friend.first_name}} {{friend.last_name}}
       </div>
