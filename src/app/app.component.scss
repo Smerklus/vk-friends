@@ -1,3 +1,29 @@
-.friends-info{
-    display: grid;
+.friends-info {
+  display: grid;
+}
+.app-wrapper {
+  width: 400px;
+  height: 380px;
+  margin: auto;
+}
+.app-wrapper-header {
+  height: 50px;
+  background: blue;
+  color: white;
+  text-align: center;
+}
+.app-wrapper-body {
+  display: flex;
+  background: #dbdbde;
+  height: inherit;
+  justify-content: center;
+}
+button {
+  height: 50px;
+  width: 100px;
+  align-self: center;
+}
+h5 {
+  font-size: 24px;
+  padding: 12px 0px 0px 0px;
 }

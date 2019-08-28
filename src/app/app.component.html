@@ -1,9 +1,17 @@
-<button *ngIf="!user" (click)="login()">Login</button>
-<div class="my-info">
-  {{user.first_name}} {{user.last_name}}
-</div>
-<div class="friends-info">
-  <div *ngFor="let friend of friends">
-   <img [src]="friend.photo_50" alt="{{friend.id}}"> {{friend.first_name}} {{friend.last_name}}
+<div class="app-wrapper">
+  <div class="app-wrapper-header">
+    <h5>VK friends</h5>
+  </div>
+  <div class="app-wrapper-body">
+    <button *ngIf="!user" (click)="login()">Login</button>
+    <div class="my-info" *ngIf="!user">
+      {{user.first_name}} {{user.last_name}}
+    </div>
+    <hr>
+    <div class="friends-info">
+      <div *ngFor="let friend of friends">
+        <img [src]="friend.photo_50" alt="{{friend.id}}"> {{friend.first_name}} {{friend.last_name}}
+      </div>
+    </div>
   </div>
 </div>
