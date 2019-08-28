@@ -9,7 +9,7 @@
     </div>
     <hr>
     <div class="friends-info">
-      <div *ngFor="let friend of friends">
+      <div class="friends-item" *ngFor="let friend of friends">
         <img [src]="friend.photo_50" alt="{{friend.id}}"> {{friend.first_name}} {{friend.last_name}}
       </div>
     </div>

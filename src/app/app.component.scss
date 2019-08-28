@@ -8,13 +8,14 @@
 }
 .app-wrapper-header {
   height: 50px;
-  background: blue;
+  background: #4a76a8;
   color: white;
   text-align: center;
 }
 .app-wrapper-body {
   display: flex;
-  background: #dbdbde;
+  flex-direction: column;
+  background: #edeef0;
   height: inherit;
   justify-content: center;
 }
@@ -26,4 +27,16 @@ button {
 h5 {
   font-size: 24px;
   padding: 12px 0px 0px 0px;
+}
+hr{
+    width: 95%;
+}
+.friends-item{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+img{
+    padding: 0 5px;
+    border-radius: 30%;
 }
