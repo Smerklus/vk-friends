@@ -5,7 +5,7 @@
   <div class="app-wrapper-body">
     <button *ngIf="!user" (click)="login()">Login</button>
     <div class="my-info">
-      {{user?.first_name}} {{user?.last_name}}
+        <img [src]="user?.photo_50" alt="{{user?.id}}"> {{user?.first_name}} {{user?.last_name}}
     </div>
     <hr *ngIf="user">
     <div class="friends-info">

@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   getCurrentUser() {
-    VK.Api.call('users.get', { fields: 'photo_100', v: "5.8" }, r => {
+    VK.Api.call('users.get', { fields: 'photo_50', v: "5.8" }, r => {
       if (r.response) {
         this.user = r.response[0];
         this.getFriends();
