@@ -2,7 +2,11 @@
   display: grid;
 }
 .my-info {
-  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  margin: 7px 14px;
+  padding: 7px;
+  background: #e5ebf1;
 }
 .app-wrapper {
   width: 400px;
@@ -21,10 +25,14 @@
   background: #edeef0;
   height: inherit;
   justify-content: center;
+  height: auto;
+  font-size: 18px;
 }
 button {
+  width: 100px;
+  height: 35px;
+  align-self: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  padding: 7px 16px 8px;
   margin: 0;
   font-size: 12.5px;
   display: inline-block;
@@ -57,9 +65,14 @@ hr {
 .friends-item {
   display: flex;
   align-items: center;
-  padding: 5px;
+  margin: 7px 14px;
+  padding: 7px;
+  background: #e5ebf1;
 }
 img {
   padding: 0 5px;
   border-radius: 30%;
+}
+body {
+  background: #edeef0;
 }
