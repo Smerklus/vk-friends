@@ -4,7 +4,7 @@
   </div>
   <div class="app-wrapper-body">
     <button *ngIf="!user" (click)="login()">Login</button>
-    <div class="my-info" *ngIf="!user">
+    <div class="my-info">
       {{user?.first_name}} {{user?.last_name}}
     </div>
     <hr>
