@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   getFriends() {
-    VK.Api.call('friends.get', { user_id: 29026789, fields: 'photo_50', count: 5, v: "5.8" }, r => {
+    VK.Api.call('friends.get', { user_id: this.user.id, fields: 'photo_50', count: 5, v: "5.8" }, r => {
       if (r.response) {
         this.friends = r.response.items;
       }
